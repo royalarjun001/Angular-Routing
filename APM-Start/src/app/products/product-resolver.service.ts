@@ -8,13 +8,13 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductResolver implements Resolve<ProductResolved>{
+export class ProductResolver implements Resolve<ProductResolved> {
 
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<ProductResolved> {
     const id = route.paramMap.get('id');
-    if(isNaN(+id)) {
+    if (isNaN(+id)) {
       const somemessage = 'xyz message';
       return of({product: null, error: somemessage}) ;
     }

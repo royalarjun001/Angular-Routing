@@ -19,8 +19,11 @@
       <a class="nav-link">Welcome {{ userName }}</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="[{ outlets : { popup : ['messages']}}]" routerLinkActive="router-link-active"  >Show Messages</a>
+      <a class="nav-link" *ngIf="!isMessageDisplayed" (click)="displayMessages()">Show Messages</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" *ngIf="isMessageDisplayed" (click)="hideMessages()">Hide Messages</a>
+      </li>
     <li class="nav-item"
         *ngIf="!isLoggedIn">
       <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Log In</a>

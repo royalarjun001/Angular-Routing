@@ -56,11 +56,12 @@ export class AppComponent {
   }
 
   displayMessages() {
-    this.router.navigate([{outlets:{ popup: 'messages'}}]);
+    this.router.navigate([{outlets: { popup: 'messages'}}]);
     this.messageService.isDisplayed = true;
   }
 
-  hideMessages(){
+  hideMessages() {
+    this.router.navigate([{outlets: { popup: null }}]);
     this.messageService.isDisplayed = false;
   }
 }
